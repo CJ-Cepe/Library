@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;1,700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 1px solid red;
+}
+
+html {
+    font-style: 16px;
+    font-family: 'Ibarra Real Nova', serif;
+
+    --black1: #242424;
+    --black2: #000;
+    --black3: #1d1d1d;
+    --white1: #fbfbfb;
+    --white2: #fff;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--white1);
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.main-cont {
+    width: 70%;
+
+    display: grid;
+    grid-template-areas: 'a' 'b' 'c';
+}
+
+.main-cont div:first-child {
+    grid-area: a;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: end;
+}
+
+.main-cont div:first-child > span {
+    font-size: 3vw;
+    line-height: 0.8;
+    margin-bottom: 1rem;
+}
+
+.main-cont div:first-child > span > p {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.main-cont div:first-child > img {
+    justify-self: end;
+}
+
+.main-cont div:nth-child(2) {
+    grid-area: b;
+    width: 100%;
+    height: 50vh;
+    background-color: #1d1d1d;
+}
+
+.main-cont div:last-child {
+    background-color: aqua;
+    display: grid;
+    grid-area: 'a b';
+}
+
+.legs {
+    background-color: #727070;
+    -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+}
+
+.main-cont div:last-child:last-child {
+    justify-self: end;
+}
