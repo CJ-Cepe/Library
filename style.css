@@ -12,6 +12,9 @@
 html {
     font-style: 16px;
     font-family: 'Ibarra Real Nova', serif;
+    --gray1: #a7a7ab;
+    --gray2: #727070;
+    --gray3: #312f2f;
 
     --black1: #242424;
     --black2: #000;
