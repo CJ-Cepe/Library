@@ -61,6 +61,7 @@ body {
 
 .main-cont > div:first-child > img {
     justify-self: end;
+    width: max(80%, 150px);
 }
 
 /* ============ Shelf ============ */
