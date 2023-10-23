@@ -6,7 +6,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 html {
@@ -30,6 +30,7 @@ body {
     justify-items: center;
 }
 
+/* ============ Main ============ */
 .main-cont {
     width: 70%;
 
@@ -37,7 +38,8 @@ body {
     grid-template-areas: 'a' 'b' 'c';
 }
 
-.main-cont div:first-child {
+/* ============ Top Shelf ============ */
+.main-cont > div:first-child {
     grid-area: a;
 
     display: grid;
@@ -45,40 +47,53 @@ body {
     align-items: end;
 }
 
-.main-cont div:first-child > span {
+.main-cont > div:first-child > span {
     font-size: 3vw;
     line-height: 0.8;
     margin-bottom: 1rem;
 }
 
-.main-cont div:first-child > span > p {
+.main-cont > div:first-child > span > p {
     font-style: italic;
     font-weight: bold;
 }
 
-.main-cont div:first-child > img {
+.main-cont > div:first-child > img {
     justify-self: end;
 }
 
-.main-cont div:nth-child(2) {
+/* ============ Shelf ============ */
+.main-cont > div:nth-child(2) {
     grid-area: b;
     width: 100%;
     height: 50vh;
-    background-color: #1d1d1d;
+    background-color: #a7a7ab;
 }
 
-.main-cont div:last-child {
-    background-color: aqua;
+/* ============ Shelf Legs ============ */
+.main-cont > div:last-child {
+    grid-area: c;
+    height: 10vh;
+
     display: grid;
-    grid-area: 'a b';
+    grid-template-areas: 'a b';
+    grid-template-columns: 1fr 1fr;
 }
 
-.legs {
+.shelf-leg {
     background-color: #727070;
+    height: 10vh;
+    width: 7vw;
+}
+
+.shelf-leg:first-child {
     -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
     clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
 }
 
-.main-cont div:last-child:last-child {
+.shelf-leg:last-child {
+    grid-area: b;
     justify-self: end;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
 }
