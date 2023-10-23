@@ -72,19 +72,31 @@ body {
 .main-cont > div:nth-child(2) {
     grid-area: b;
     background-color: var(--gray1);
+    position: relative;
+    padding: 2% 5% 2% 5%;
 
     display: grid;
     justify-items: center;
-    align-items: center;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
-    grid-auto-rows: 1fr;
+    align-items: end;
+
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-flow: row;
 }
 
 .shelf-row {
     background-color: var(--gray2);
-    width: 90%;
-    height: 70%;
+    position: absolute;
+    z-index: 0;
+    grid-column: span 7;
+    height: 85%;
+}
+
+.book {
+    background-color: #282828;
+    height: 80%;
+    width: 85%;
+    grid-row: span 1;
+    grid-column: span 1;
 }
 
 /* ============ Shelf Legs ============ */
