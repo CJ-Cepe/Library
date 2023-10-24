@@ -26,6 +26,7 @@ html {
     --white2: #fff;
 }
 
+/*================== Body =================*/
 body {
     width: 100vw;
     height: 100vh;
@@ -45,3 +46,5 @@ body {
     flex-shrink: 2;
     background-color: #a7a7ab;
 }
+
+/*================== Shelf =================*/
