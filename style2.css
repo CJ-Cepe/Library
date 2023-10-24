@@ -61,8 +61,15 @@ body {
 
 .main-cont > div:nth-child(2) {
     grid-row: span 1;
-
     background-color: var(--gray1);
+    padding: 5%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 100px);
+    column-gap: 2%;
+    row-gap: 11%;
+    justify-content: center;
+    align-content: center;
 }
 
 .main-cont > div:last-child {
@@ -102,7 +109,19 @@ body {
 }
 
 /*================== Shelf Body =================*/
+.book {
+    background-color: var(--gray3);
+    height: 200px;
+}
 
+.add {
+    background-color: var(--black3);
+    color: var(--white1);
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /*================== Shelf Legs =================*/
 .main-cont > div:last-child {
     display: grid;
