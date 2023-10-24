@@ -104,3 +104,24 @@ body {
 /*================== Shelf Body =================*/
 
 /*================== Shelf Legs =================*/
+.main-cont > div:last-child {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.shelf-leg {
+    background-color: var(--gray2);
+    width: max(60px, 25%);
+    height: max(50px, 5vw);
+}
+
+.shelf-leg:first-child {
+    -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+}
+
+.shelf-leg:last-child {
+    justify-self: end;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+}
