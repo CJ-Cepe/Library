@@ -25,3 +25,23 @@ html {
     --white1: #fbfbfb;
     --white2: #fff;
 }
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+}
+
+.main-cont {
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 600px;
+    background-color: #727070;
+}
+
+.side {
+    flex-grow: 1;
+    flex-shrink: 2;
+    background-color: #a7a7ab;
+}
