@@ -13,7 +13,7 @@
 }
 
 html {
-    font-style: 16px;
+    font-size: 16px;
     font-family: 'Ibarra Real Nova', serif;
     --gray1: #a7a7ab;
     --gray2: #727070;
@@ -32,19 +32,75 @@ body {
     height: 100vh;
 
     display: flex;
+    background-color: var(--white1);
 }
 
 .main-cont {
     flex-grow: 2;
     flex-shrink: 1;
     flex-basis: 600px;
-    background-color: #727070;
+
+    display: grid;
+    grid-template-rows: 0.6fr 2fr 0.5fr;
 }
 
 .side {
     flex-grow: 1;
     flex-shrink: 2;
-    background-color: #a7a7ab;
 }
 
 /*================== Shelf =================*/
+.main-cont > div:first-child {
+    grid-row: span 1;
+    padding-top: 1%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    align-items: end;
+}
+
+.main-cont > div:nth-child(2) {
+    grid-row: span 1;
+
+    background-color: var(--gray1);
+}
+
+.main-cont > div:last-child {
+    grid-row: span 1;
+}
+
+/*================== Top Shelf =================*/
+.main-cont > div:first-child > span {
+    font-size: max(30px, 3vw);
+    line-height: 0.8;
+    margin-bottom: 1rem;
+    color: var(--black1);
+    padding-left: 10%;
+}
+
+.main-cont > div:first-child > span > p {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.main-cont > div:first-child > img {
+    justify-self: end;
+    width: max(300px, 100%);
+}
+
+@media only screen and (max-width: 536px) {
+    .main-cont > div:first-child > span {
+        padding-top: 2%;
+        padding-left: 5%;
+    }
+
+    .main-cont > div:first-child > img {
+        justify-self: end;
+        width: 80%;
+        padding-right: 5%;
+    }
+}
+
+/*================== Shelf Body =================*/
+
+/*================== Shelf Legs =================*/
