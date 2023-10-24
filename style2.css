@@ -9,7 +9,7 @@
 * {
     margin: 0;
     padding: 0;
-    outline: 1px red solid;
+    /*  outline: 1px red solid; */
 }
 
 html {
@@ -52,7 +52,7 @@ body {
 /*================== Shelf =================*/
 .main-cont > div:first-child {
     grid-row: span 1;
-    padding-top: 1%;
+    padding-top: 2%;
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -75,7 +75,7 @@ body {
     line-height: 0.8;
     margin-bottom: 1rem;
     color: var(--black1);
-    padding-left: 10%;
+    padding-left: 5%;
 }
 
 .main-cont > div:first-child > span > p {
