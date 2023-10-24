@@ -39,7 +39,7 @@ body {
 
     display: grid;
     grid-template-areas: 'a' 'b' 'c';
-    grid-template-rows: 1fr 2fr 0.3fr;
+    grid-template-rows: 1fr auto 0.3fr;
 }
 
 /* ============ Top Shelf ============ */
@@ -93,13 +93,22 @@ body {
     padding: 2% 2% 0 2%;
 
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr;
-    gap: 2%;
+    gap: 4%;
 }
 
 .book {
-    background-color: var(--black1);
+    background-color: var(--gray3);
+}
+
+.add {
+    background-color: var(--black3);
+    color: var(--white1);
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ============ Shelf Legs ============ */
