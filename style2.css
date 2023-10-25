@@ -62,11 +62,11 @@ body {
 .main-cont > div:nth-child(2) {
     grid-row: span 1;
     background-color: var(--gray1);
-    padding: 0;
+    padding: 5%;
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    row-gap: 100px;
+    row-gap: 50px;
     column-gap: 20px;
     justify-content: center;
     align-content: start;
@@ -111,7 +111,13 @@ body {
 /*================== Shelf Body =================*/
 .book {
     background-color: var(--gray3);
-    height: 100px;
+    height: 300px;
+    width: 150px;
+
+    display: grid;
+    grid-template-areas: 'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i';
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.2fr 0.2fr 1fr 0.2fr 0.2fr 1.5fr 0.2fr 0.7fr;
 }
 
 .add {
@@ -121,6 +127,35 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/*================== Book body =================*/
+.book > div:first-child {
+    grid-area: b;
+}
+
+.book > div:nth-child(3) {
+    grid-area: f;
+}
+
+.book > div:nth-child(5) {
+    grid-area: h;
+}
+
+.book > .divider {
+    background-color: #111c33;
+}
+
+.book > .title {
+    background-color: #111c33;
+    color: #ffb43b;
+    grid-area: d;
+}
+
+.book > .author {
+    color: #feffae;
+    font-size: 0.7rem;
+    grid-area: g;
 }
 /*================== Shelf Legs =================*/
 .main-cont > div:last-child {
