@@ -114,7 +114,8 @@ body {
     background-color: #305092;
     height: 300px;
     width: 150px;
-    border-radius: 4%;
+    border-radius: 10px;
+    position: relative;
 
     display: grid;
     grid-template-areas: 'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i';
@@ -196,6 +197,13 @@ body {
     background-color: greenyellow;
 }
 
+.book-shadow {
+    position: absolute;
+    height: 100%;
+    width: 10%;
+    background-color: rgba(43, 43, 43, 0.2);
+    border-radius: 10px 0 0 10px;
+}
 /*================== Shelf Legs =================*/
 .main-cont > div:last-child {
     display: grid;
