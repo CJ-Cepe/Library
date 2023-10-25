@@ -179,6 +179,21 @@ body {
     align-self: center;
 }
 
+.book > .status {
+    grid-area: i;
+    height: 23px;
+    width: 23px;
+    border-radius: 50%;
+    border: 2px solid greenyellow;
+
+    align-self: center;
+    justify-self: center;
+}
+
+.done {
+    background-color: greenyellow;
+}
+
 /*================== Shelf Legs =================*/
 .main-cont > div:last-child {
     display: grid;
