@@ -110,7 +110,7 @@ body {
 
 /*================== Shelf Body =================*/
 .book {
-    background-color: var(--gray3);
+    background-color: #305092;
     height: 300px;
     width: 150px;
 
@@ -161,7 +161,24 @@ body {
     color: #feffae;
     font-size: 1rem;
     grid-area: g;
+    font-style: italic;
+
+    display: grid;
+    grid-template-rows: 1fr 0.4fr;
+    justify-items: center;
+    text-align: center;
+    align-items: end;
 }
+
+.book > .author > p {
+    font-size: 0.9rem;
+    font-family: ;
+    color: #efefef;
+    opacity: 0.7;
+
+    align-self: start;
+}
+
 /*================== Shelf Legs =================*/
 .main-cont > div:last-child {
     display: grid;
