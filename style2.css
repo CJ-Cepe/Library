@@ -149,12 +149,17 @@ body {
 .book > .title {
     background-color: #111c33;
     color: #ffb43b;
+    font-size: 1.3rem;
     grid-area: d;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
 }
 
 .book > .author {
     color: #feffae;
-    font-size: 0.7rem;
+    font-size: 1rem;
     grid-area: g;
 }
 /*================== Shelf Legs =================*/
