@@ -30,6 +30,7 @@ html {
 body {
     width: 100vw;
     height: 100vh;
+    max-width: 100%;
 
     display: flex;
     background-color: var(--white1);
@@ -87,7 +88,7 @@ body {
 
 .main-cont > div:first-child > img {
     justify-self: end;
-    width: max(300px, 100%);
+    width: max(300px, 90%);
 }
 
 @media only screen and (max-width: 536px) {
@@ -218,6 +219,7 @@ body {
 .main-cont > div:last-child {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-bottom: 10px;
 }
 
 .shelf-leg {
