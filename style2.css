@@ -132,6 +132,11 @@ body {
     justify-content: center;
 }
 
+.book:hover {
+    outline: 3px white solid;
+    bottom: 10px;
+}
+
 /*================== Book body =================*/
 .book > div:first-child {
     grid-area: b;
