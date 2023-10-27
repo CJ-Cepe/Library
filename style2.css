@@ -253,11 +253,15 @@ body {
     transform: translate(-50%, -50%);
 
     height: 80%;
-    width: 30%;
+    width: 28%;
     padding: 1% 2%;
     border: 0;
 
     font-size: 1.5rem;
+}
+
+.modal::backdrop {
+    background-color: hsla(0, 0%, 5%, 0.785);
 }
 
 fieldset {
@@ -277,11 +281,48 @@ legend > h1 {
     font-weight: 400;
     font-style: italic;
     font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+label {
+    margin-bottom: -1rem;
 }
 
 input[type='text'],
 input[type='number'] {
+    font-family: 'Ibarra Real Nova', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--gray2);
+
     border: none;
     border-bottom: 1px solid var(--black1);
-    font-size: 1.5rem;
+}
+
+input::placeholder {
+    color: rgb(188, 188, 188);
+}
+
+input:focus {
+    outline: none;
+}
+
+input[type='text'] {
+    padding-left: 1rem;
+}
+
+input[type='number'] {
+    text-align: center;
+}
+
+.guide {
+    color: #514b4b;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+input:not(:placeholder-shown) label:nth-child(1) > .guide {
+    display: inline;
 }

@@ -50,7 +50,8 @@
                 <fieldset>
                     <legend><h1>Book Information</h1></legend>
                     <label for="title"
-                        >Title <span aria-label="required">*</span></label
+                        >Title <span aria-label="required">*</span>
+                        <span class="guide">(1-100 characters)</span></label
                     ><input
                         type="text"
                         name="title"
@@ -58,9 +59,11 @@
                         required
                         minlength="1"
                         maxlength="100"
+                        placeholder="Lord of the Rings"
                     />
                     <label for="author"
-                        >Author <span aria-label="required">*</span></label
+                        >Author <span aria-label="required">*</span
+                        ><span class="guide">(1-50 characters)</span></label
                     ><input
                         type="text"
                         name="author"
@@ -68,16 +71,18 @@
                         required
                         minlength="1"
                         maxlength="50"
+                        placeholder="John Ronald Reuel Tolkien"
                     />
                     <label for="pages"
-                        >Pages <span aria-label="required">*</span></label
+                        >Pages <span aria-label="required">*</span
+                        ><span class="guide">(minimum of 1)</span></label
                     ><input
                         type="number"
                         name="pages"
                         id="pages"
                         required
                         min="1"
-                        placeholder="1"
+                        placeholder="423"
                     />
                     <label for="read">Read?</label
                     ><input type="radio" name="read" id="read" value="yes" />
