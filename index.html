@@ -97,20 +97,22 @@
                     </div>
 
                     <div class="form-cont">
-                        <label class="switch">
+                        <div>
+                            <span aria-hidden="true">No</span>
                             <input
-                                type="checkbox"
+                                type="range"
                                 name="read"
                                 id="read"
-                                value="yes"
+                                max="1"
+                                value="0"
                             />
-                            <span class="slider"></span>
-                        </label>
+                            <span>Yes</span>
+                        </div>
                         <label for="read">Read?</label>
                     </div>
 
                     <div class="form-cont">
-                        <button type="submit">Submit</button>
+                        <button type="submit" id="submit">Submit</button>
                         <button type="reset">Cancel</button>
                     </div>
                 </fieldset>

@@ -10,3 +10,14 @@ addButton.addEventListener('click', (e) => {
 cancelButton.addEventListener('click', (e) => {
     modal.close();
 });
+
+form.addEventListener('submit', (e) => {
+    console.log('yummy');
+    //e.preventDefault();
+    let author = document.querySelector('#author').value;
+    let title = document.querySelector('#title').value;
+    let pages = document.querySelector('#pages').value;
+    let read = document.querySelector('#read').value;
+
+    alert(`${author} ${title} ${pages} ${read}`);
+});
