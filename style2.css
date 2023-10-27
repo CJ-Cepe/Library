@@ -143,6 +143,12 @@ body {
     bottom: 10px;
 }
 
+.add:hover {
+    background-color: var(--black1);
+    bottom: 0;
+    outline: none;
+}
+
 /*================== Book body =================*/
 .book > div:first-child {
     grid-area: b;
