@@ -278,3 +278,10 @@ legend > h1 {
     font-style: italic;
     font-size: 2rem;
 }
+
+input[type='text'],
+input[type='number'] {
+    border: none;
+    border-bottom: 1px solid var(--black1);
+    font-size: 1.5rem;
+}
