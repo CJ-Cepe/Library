@@ -22,5 +22,8 @@ form.addEventListener('submit', (e) => {
     let author = document.querySelector('#author');
     let read = document.querySelector('#read');
     let pages = document.querySelector('#pages');
-    console.log();
+    console.log(title, author, read, pages);
+    createBook(title, author, read, pages);
 });
+
+function createBook(titleValue, authorValue, readValue, pagesValue) {}
