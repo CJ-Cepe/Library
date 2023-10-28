@@ -31,19 +31,34 @@ function createBook(titleValue, authorValue, readValue, pagesValue) {
     book.classList.add('book');
     let divider1 = document.createElement('div');
     divider1.classList.add('divider');
-    /*     let divider2 = document.createElement('div').classList.add('divider');
-    let divider3 = document.createElement('div').classList.add('divider'); */
+    let divider2 = document.createElement('div');
+    divider2.classList.add('divider');
+    let divider3 = document.createElement('div');
+    divider3.classList.add('divider');
     let title = document.createElement('span');
     title.classList.add('title');
     let author = document.createElement('span');
     author.classList.add('author');
+    let pages = document.createElement('p');
+    pages.classList.add('pages');
     let status = document.createElement('div');
     status.classList.add('status');
     let bookShadow = document.createElement('div');
     bookShadow.classList.add('book-shadow');
 
-    book.appendChild(title).appendChild(divider1);
-    innerShelf.appendChild(book);
+    title.textContent = titleValue;
+    author.textContent = authorValue;
+    pages.textContent = pagesValue + ' p.';
+
+    book.appendChild(divider1);
+    book.appendChild(title);
+    book.appendChild(divider2);
+    author.appendChild(pages);
+    book.appendChild(author);
+    book.appendChild(divider3);
+    book.appendChild(status);
+    book.appendChild(bookShadow);
+    innerShelf.insertBefore(book, addButton);
 }
 
 /* 
