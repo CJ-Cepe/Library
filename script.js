@@ -1,32 +1,23 @@
+const myLibrary = [];
+
 let modal = document.querySelector('.modal');
 let addButton = document.querySelector('.add');
 let cancelButton = document.querySelector("button[type='reset']");
 let form = document.querySelector('form');
 let innerShelf = document.querySelector('.inner-shelf');
 
-addButton.addEventListener('click', (e) => {
-    modal.showModal();
-});
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+}
 
-cancelButton.addEventListener('click', (e) => {
-    modal.close();
-});
+function addBookToLibrary(book) {
+    myLibrary.push(book);
+}
 
-form.addEventListener('submit', (e) => {
-    let title = document.querySelector('#title').value;
-    let author = document.querySelector('#author').value;
-    let pages = document.querySelector('#pages').value;
-    let read = document.querySelector('#read').value;
-
-    console.log(`${title}, ${author}, ${read}, ${pages}`);
-    createBook(title, author, read, pages);
-
-    e.preventDefault();
-    form.reset();
-    modal.close();
-});
-
-function createBook(titleValue, authorValue, readValue, pagesValue) {
+function displayBook(titleValue, authorValue, pagesValue, readValue) {
     let book = document.createElement('div');
     book.classList.add('book');
     let divider1 = document.createElement('div');
@@ -61,20 +52,27 @@ function createBook(titleValue, authorValue, readValue, pagesValue) {
     innerShelf.insertBefore(book, addButton);
 }
 
-/* 
-       <div class="book">
-                        <div class="divider"></div>
-                        <span class="title">Lord of the Rings</span>
-                        <div class="divider"></div>
-                        <span class="author">
-                            John Ronald Reuel Tolkien
-                            <p class="pages">123 p.</p>
-                        </span>
-                        <div class="divider"></div>
-                        <div class="status"></div>
-                        <div class="book-shadow"></div>
-                    </div>
-*/
+addButton.addEventListener('click', (e) => {
+    modal.showModal();
+});
+
+cancelButton.addEventListener('click', (e) => {
+    modal.close();
+});
+
+form.addEventListener('submit', (e) => {
+    let title = document.querySelector('#title').value;
+    let author = document.querySelector('#author').value;
+    let pages = document.querySelector('#pages').value;
+    let read = document.querySelector('#read').value;
+
+    addBookToLibrary(new Book(title, author, pages, read));
+    displayBook(title, author, pages, read);
+
+    e.preventDefault();
+    form.reset();
+    modal.close();
+});
 
 /* function adjustFontSize(id) {
     var element = document.querySelector('title');
