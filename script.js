@@ -75,3 +75,17 @@ function createBook(titleValue, authorValue, readValue, pagesValue) {
                         <div class="book-shadow"></div>
                     </div>
 */
+
+/* function adjustFontSize(id) {
+    var element = document.querySelector('title');
+    var parent = element.parentNode;
+    var fontSize = parseInt(window.getComputedStyle(element).fontSize);
+
+    while (
+        element.offsetHeight > parent.offsetHeight ||
+        element.offsetWidth > parent.offsetWidth
+    ) {
+        fontSize--;
+        element.style.fontSize = fontSize + 'px';
+    }
+} */
