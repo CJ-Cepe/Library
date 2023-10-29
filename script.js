@@ -88,8 +88,9 @@ form.addEventListener('submit', (e) => {
         element.style.fontSize = fontSize + 'px';
     }
 } */
-
+/* 
 //set data-index
+
 per book add
     - set data index for the book element - HTML
         - the data-index will be the myLibrary length since start in index 0
@@ -112,3 +113,5 @@ delete book
 add field limit for title, author, pages
 
     done
+
+     */

@@ -176,7 +176,7 @@ body {
     align-items: center;
     text-align: center;
     justify-content: center;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .book > .author {
@@ -190,7 +190,7 @@ body {
     justify-items: center;
     text-align: center;
     align-items: end;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .book > .author > p {
@@ -200,7 +200,7 @@ body {
     opacity: 0.7;
 
     align-self: center;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .book > .status {
