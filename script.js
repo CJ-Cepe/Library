@@ -5,6 +5,7 @@ let addButton = document.querySelector('.add');
 let cancelButton = document.querySelector("button[type='reset']");
 let form = document.querySelector('form');
 let innerShelf = document.querySelector('.inner-shelf');
+let deleteButton = document.querySelector('.delete');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -42,18 +43,7 @@ function displayBook(titleValue, authorValue, pagesValue, readValue) {
     author.textContent = authorValue;
     pages.textContent = pagesValue + ' p.';
 
-    book.addEventListener('click', (e) => {
-        /*     let del = document.createElement('img');
-        del.src = './assets/delete-outline.svg';
-        let lastCont = document.querySelector('.form-cont:last-child');
-        let reset = document.querySelector(".form-cont > button[type='reset']");
-        modal.showModal();
-        lastCont.removeChild(reset);
-        lastCont.appendChild(del); */
-
-        let modal2 = document.querySelector('.form-2');
-        modal2.showModal();
-    });
+    book.addEventListener('click', form2Show);
 
     book.appendChild(divider1);
     book.appendChild(title);
@@ -88,6 +78,26 @@ cancelButton.addEventListener('click', (e) => {
     modal.close();
 });
 
+deleteButton.addEventListener('click', (e) => {});
+
+function form2Show(e) {
+    let modal2 = document.querySelector('.form-2');
+    modal2.showModal();
+
+    let title = document.querySelector('#title-2');
+    let author = document.querySelector('#author-2');
+    let pages = document.querySelector('#pages-2');
+    let read = document.querySelector('#read-2');
+
+    let temp = e.currentTarget;
+    let index = temp.dataset.index;
+    console.log(temp, index);
+
+    title.value = myLibrary[index].title;
+    author.value = myLibrary[index].author;
+    pages.value = myLibrary[index].pages;
+    read.value = myLibrary[index].read;
+}
 /* function adjustFontSize(id) {
     var element = document.querySelector('title');
     var parent = element.parentNode;
@@ -130,4 +140,7 @@ add field limit for title, author, pages
 
     - read status
     - limit field number of chars
+    - form 2 save
+    - form 2 delete
+    - form 2 cancel
      */
