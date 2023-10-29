@@ -362,3 +362,19 @@ input:not(:focus) + label > .guide {
 .form-cont:last-child button:first-child {
     margin-right: auto;
 }
+
+/*================== Form 2 =================*/
+
+.form-2 .form-cont:nth-last-child(2) {
+    flex-direction: row;
+    margin-bottom: 0.5rem;
+}
+
+.form-2 .form-cont:nth-last-child(2) > div {
+    margin-right: auto;
+}
+
+.form-2 .form-cont:nth-last-child(2) > div > div > input {
+    margin-top: 1rem;
+    width: 50px;
+}

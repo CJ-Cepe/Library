@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="side"></div>
-        <dialog class="modal">
+        <dialog class="modal form-1">
             <form>
                 <fieldset>
                     <legend><h1>Book Information</h1></legend>
@@ -100,6 +100,86 @@
 
                     <div class="form-cont">
                         <button type="submit" id="submit">Submit</button>
+                        <button type="reset">Cancel</button>
+                    </div>
+                </fieldset>
+            </form>
+        </dialog>
+        <dialog class="modal form-2">
+            <form>
+                <fieldset>
+                    <legend><h1>Book Information</h1></legend>
+                    <div class="form-cont">
+                        <input
+                            type="text"
+                            name="title"
+                            id="title"
+                            required
+                            minlength="1"
+                            maxlength="100"
+                            placeholder="Lord of the Rings"
+                        />
+                        <label for="title"
+                            >Title <span aria-label="required">*</span>
+                            <span class="guide">(1-100 characters)</span></label
+                        >
+                    </div>
+
+                    <div class="form-cont">
+                        <input
+                            type="text"
+                            name="author"
+                            id="author"
+                            required
+                            minlength="1"
+                            maxlength="50"
+                            placeholder="John Ronald Reuel Tolkien"
+                        />
+                        <label for="author"
+                            >Author <span aria-label="required">*</span
+                            ><span class="guide">(1-50 characters)</span></label
+                        >
+                    </div>
+
+                    <div class="form-cont">
+                        <input
+                            type="number"
+                            name="pages"
+                            id="pages"
+                            required
+                            min="1"
+                            placeholder="423"
+                        />
+                        <label for="pages"
+                            >Pages <span aria-label="required">*</span
+                            ><span class="guide">(minimum of 1)</span></label
+                        >
+                    </div>
+
+                    <div class="form-cont">
+                        <div>
+                            <label for="read">Read?</label>
+                            <div>
+                                <span aria-hidden="true">No</span>
+                                <input
+                                    type="range"
+                                    name="read"
+                                    id="read"
+                                    max="1"
+                                />
+                                <span>Yes</span>
+                            </div>
+                        </div>
+
+                        <img
+                            src="./assets/delete-outline.svg"
+                            alt="delete-icon"
+                            width="15%"
+                        />
+                    </div>
+
+                    <div class="form-cont">
+                        <button type="submit" id="submit">Save</button>
                         <button type="reset">Cancel</button>
                     </div>
                 </fieldset>

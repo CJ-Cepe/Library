@@ -42,6 +42,19 @@ function displayBook(titleValue, authorValue, pagesValue, readValue) {
     author.textContent = authorValue;
     pages.textContent = pagesValue + ' p.';
 
+    book.addEventListener('click', (e) => {
+        /*     let del = document.createElement('img');
+        del.src = './assets/delete-outline.svg';
+        let lastCont = document.querySelector('.form-cont:last-child');
+        let reset = document.querySelector(".form-cont > button[type='reset']");
+        modal.showModal();
+        lastCont.removeChild(reset);
+        lastCont.appendChild(del); */
+
+        let modal2 = document.querySelector('.form-2');
+        modal2.showModal();
+    });
+
     book.appendChild(divider1);
     book.appendChild(title);
     book.appendChild(divider2);
@@ -74,6 +87,7 @@ addButton.addEventListener('click', (e) => {
 cancelButton.addEventListener('click', (e) => {
     modal.close();
 });
+
 /* function adjustFontSize(id) {
     var element = document.querySelector('title');
     var parent = element.parentNode;
@@ -87,6 +101,7 @@ cancelButton.addEventListener('click', (e) => {
         element.style.fontSize = fontSize + 'px';
     }
 } */
+
 /* 
 
 per book add
@@ -112,4 +127,7 @@ add field limit for title, author, pages
 
     done
 
+
+    - read status
+    - limit field number of chars
      */
