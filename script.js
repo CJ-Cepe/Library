@@ -6,6 +6,7 @@ let cancelButton = document.querySelector("button[type='reset']");
 let form = document.querySelector('form');
 let innerShelf = document.querySelector('.inner-shelf');
 let deleteButton = document.querySelector('.delete');
+let focusIndex = 0;
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -78,7 +79,23 @@ cancelButton.addEventListener('click', (e) => {
     modal.close();
 });
 
-deleteButton.addEventListener('click', (e) => {});
+deleteButton.addEventListener('click', (e) => {
+    myLibrary.splice(focusIndex.dataset.index, 1);
+    tempIndex = focusIndex.dataset.index;
+    innerShelf.removeChild(focusIndex);
+    console.log(myLibrary);
+    //change index of other books
+    let books = document.querySelectorAll('.book');
+
+    books.forEach((book) => {
+        console.log(book, books);
+        if (+book.dataset.index > tempIndex) {
+            book.dataset.index = +book.dataset.index - 1;
+        }
+    });
+
+    //modal-close
+});
 
 function form2Show(e) {
     let modal2 = document.querySelector('.form-2');
@@ -91,6 +108,7 @@ function form2Show(e) {
 
     let temp = e.currentTarget;
     let index = temp.dataset.index;
+    focusIndex = temp;
     console.log(temp, index);
 
     title.value = myLibrary[index].title;
