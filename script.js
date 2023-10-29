@@ -20,7 +20,7 @@ function addBookToLibrary(book) {
 function displayBook(titleValue, authorValue, pagesValue, readValue) {
     let book = document.createElement('div');
     book.classList.add('book');
-    book.setAttribute('data-index', myLibrary.length);
+    book.setAttribute('data-index', myLibrary.length - 1);
     let divider1 = document.createElement('div');
     divider1.classList.add('divider');
     let divider2 = document.createElement('div');
@@ -53,14 +53,6 @@ function displayBook(titleValue, authorValue, pagesValue, readValue) {
     innerShelf.insertBefore(book, addButton);
 }
 
-addButton.addEventListener('click', (e) => {
-    modal.showModal();
-});
-
-cancelButton.addEventListener('click', (e) => {
-    modal.close();
-});
-
 form.addEventListener('submit', (e) => {
     let title = document.querySelector('#title').value;
     let author = document.querySelector('#author').value;
@@ -75,6 +67,13 @@ form.addEventListener('submit', (e) => {
     modal.close();
 });
 
+addButton.addEventListener('click', (e) => {
+    modal.showModal();
+});
+
+cancelButton.addEventListener('click', (e) => {
+    modal.close();
+});
 /* function adjustFontSize(id) {
     var element = document.querySelector('title');
     var parent = element.parentNode;
@@ -89,7 +88,6 @@ form.addEventListener('submit', (e) => {
     }
 } */
 /* 
-//set data-index
 
 per book add
     - set data index for the book element - HTML
