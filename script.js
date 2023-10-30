@@ -7,6 +7,7 @@ let form = document.querySelector('form');
 let innerShelf = document.querySelector('.inner-shelf');
 let deleteButton = document.querySelector('.delete');
 let focusIndex = 0;
+let saveButton = document.querySelector('.save');
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -95,6 +96,21 @@ deleteButton.addEventListener('click', (e) => {
     });
 
     //modal-close
+});
+
+saveButton.addEventListener('click', (e) => {
+    let title = document.querySelector('#title-2');
+    let author = document.querySelector('#author-2');
+    let pages = document.querySelector('#pages-2');
+    let read = document.querySelector('#read-2');
+
+    let index = focusIndex.dataset.index;
+    focusIndex;
+    myLibrary[index].title = title.value;
+    myLibrary[index].author = author.value;
+    myLibrary[index].pages = pages.value;
+    myLibrary[index].read = read.value;
+    e.preventDefault();
 });
 
 function form2Show(e) {
