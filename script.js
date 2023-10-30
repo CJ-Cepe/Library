@@ -103,14 +103,25 @@ saveButton.addEventListener('click', (e) => {
     let author = document.querySelector('#author-2');
     let pages = document.querySelector('#pages-2');
     let read = document.querySelector('#read-2');
-
+    e.preventDefault();
+    console.log(title);
+    console.log(focusIndex);
     let index = focusIndex.dataset.index;
-    focusIndex;
+    let bookTitle = focusIndex.querySelector(`.title`);
+    let bookAuthor = focusIndex.querySelector(`.author`);
+
+    console.log(pages.value + ' p.');
+    bookTitle.textContent = title.value;
+    bookAuthor.textContent = author.value;
+    let bookPages = document.createElement('p');
+    bookPages.classList.add('pages');
+    bookAuthor.appendChild(bookPages);
+    bookPages.textContent = pages.value + ' p.';
+
     myLibrary[index].title = title.value;
     myLibrary[index].author = author.value;
     myLibrary[index].pages = pages.value;
     myLibrary[index].read = read.value;
-    e.preventDefault();
 });
 
 function form2Show(e) {
