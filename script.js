@@ -44,6 +44,11 @@ function displayBook(titleValue, authorValue, pagesValue, readValue) {
     title.textContent = titleValue;
     author.textContent = authorValue;
     pages.textContent = pagesValue + ' p.';
+    if (readValue == 1) {
+        status.classList.toggle('On');
+    } else {
+        status.classList.toggle('On');
+    }
 
     book.addEventListener('click', form2Show);
 
@@ -109,7 +114,7 @@ saveButton.addEventListener('click', (e) => {
     let index = focusIndex.dataset.index;
     let bookTitle = focusIndex.querySelector(`.title`);
     let bookAuthor = focusIndex.querySelector(`.author`);
-
+    let status = focusIndex.querySelector('.status');
     console.log(pages.value + ' p.');
     bookTitle.textContent = title.value;
     bookAuthor.textContent = author.value;
@@ -122,6 +127,12 @@ saveButton.addEventListener('click', (e) => {
     myLibrary[index].author = author.value;
     myLibrary[index].pages = pages.value;
     myLibrary[index].read = read.value;
+
+    if (read.value == 1) {
+        status.classList.toggle('On');
+    } else {
+        status.classList.toggle('On');
+    }
 });
 
 function form2Show(e) {
@@ -188,4 +199,6 @@ add field limit for title, author, pages
     - form 2 save
     - form 2 delete
     - form 2 cancel
+    - read toogle class
+    - clean code
      */
