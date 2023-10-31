@@ -14,10 +14,16 @@ function addBookToLibrary(book) {
 /*================== Element Selectors =================*/
 let addButton = document.querySelector('.add');
 let innerShelf = document.querySelector('.inner-shelf');
+let focusBook = null;
 
 let dialog1 = document.querySelector('.form-1'); //first dialog
 let cancelButton1 = dialog1.querySelector("button[type='reset']");
 let form1 = dialog1.querySelector('form');
+
+let dialog2 = document.querySelector('.form-2');
+let saveButton1 = dialog2.querySelector('.save');
+let deleteButton1 = dialog2.querySelector('.delete');
+let cancelButton2 = dialog2.querySelector("button[type='button']");
 
 /*================== Listeners =================*/
 addButton.addEventListener('click', (e) => {
@@ -64,11 +70,7 @@ function displayBook(titleValue, authorValue, pagesValue, readValue) {
     pages.classList.add('pages');
     bookShadow.classList.add('book-shadow');
     status.classList.add('status');
-    if (readValue == 1) {
-        status.classList.add('done');
-    } else {
-        status.classList.remove('done');
-    }
+    updateStatus(readValue, status);
 
     //set attribute & Listener
     book.setAttribute('data-index', myLibrary.length - 1);
@@ -92,91 +94,89 @@ function displayBook(titleValue, authorValue, pagesValue, readValue) {
 }
 
 function form2Show(e) {
-    let dialog2 = document.querySelector('.form-2'),
-        title = dialog2.querySelector('#title-2'),
+    let title = dialog2.querySelector('#title-2'),
         author = dialog2.querySelector('#author-2'),
         pages = dialog2.querySelector('#pages-2'),
         read = dialog2.querySelector('#read-2');
 
-    dialog2.showModal();
-
-    let temp = e.currentTarget;
-    let index = temp.dataset.index;
-    focusIndex = temp;
+    focusBook = e.currentTarget;
+    let index = focusBook.dataset.index;
 
     title.value = myLibrary[index].title;
     author.value = myLibrary[index].author;
     pages.value = myLibrary[index].pages;
     read.value = myLibrary[index].read;
+
+    dialog2.showModal();
 }
 
-let deleteButton = document.querySelector('.delete');
-let focusIndex = 0;
-let saveButton = document.querySelector('.save');
+deleteButton1.addEventListener('click', (e) => {
+    let index = focusBook.dataset.index;
 
-deleteButton.addEventListener('click', (e) => {
-    myLibrary.splice(focusIndex.dataset.index, 1);
-    tempIndex = focusIndex.dataset.index;
-    innerShelf.removeChild(focusIndex);
-    console.log(myLibrary);
-    //change index of other books
-    let books = document.querySelectorAll('.book');
+    //remove book from myLibrary array
+    myLibrary.splice(index, 1);
 
+    //remove displayed book
+    innerShelf.removeChild(focusBook);
+
+    //update index of other books
+    let books = innerShelf.querySelectorAll('.book');
     books.forEach((book) => {
-        console.log(book, books);
-        if (+book.dataset.index > tempIndex) {
+        if (+book.dataset.index > index) {
             book.dataset.index = +book.dataset.index - 1;
         }
     });
 
-    //modal-close
+    //close modal after delete
+    dialog2.close();
 });
 
-saveButton.addEventListener('click', (e) => {
-    let title = document.querySelector('#title-2');
-    let author = document.querySelector('#author-2');
-    let pages = document.querySelector('#pages-2');
-    let read = document.querySelector('#read-2');
+saveButton1.addEventListener('click', (e) => {
+    let index = focusBook.dataset.index,
+        bookPages = document.createElement('p');
+
+    //get form 2 new values
+    let title = dialog2.querySelector('#title-2').value,
+        author = dialog2.querySelector('#author-2').value,
+        pages = dialog2.querySelector('#pages-2').value,
+        read = dialog2.querySelector('#read-2').value;
+
     e.preventDefault();
-    console.log(title);
-    console.log(focusIndex);
-    let index = focusIndex.dataset.index;
-    let bookTitle = focusIndex.querySelector(`.title`);
-    let bookAuthor = focusIndex.querySelector(`.author`);
-    let status = focusIndex.querySelector('.status');
-    console.log(pages.value + ' p.');
-    bookTitle.textContent = title.value;
-    bookAuthor.textContent = author.value;
-    let bookPages = document.createElement('p');
+
+    //get book elem
+    let displayedTitle = focusBook.querySelector('.title');
+    let displayedAuthor = focusBook.querySelector('.author');
+    let displayedStatus = focusBook.querySelector('.status');
+
+    //change text content
+    displayedTitle.textContent = title;
+    displayedAuthor.textContent = author;
+    displayedAuthor.appendChild(bookPages);
     bookPages.classList.add('pages');
-    bookAuthor.appendChild(bookPages);
-    bookPages.textContent = pages.value + ' p.';
+    bookPages.textContent = pages + ' p.';
 
-    myLibrary[index].title = title.value;
-    myLibrary[index].author = author.value;
-    myLibrary[index].pages = pages.value;
-    myLibrary[index].read = read.value;
+    myLibrary[index].title = title;
+    myLibrary[index].author = author;
+    myLibrary[index].pages = pages;
+    myLibrary[index].read = read;
 
-    if (read.value == 1) {
+    updateStatus(read, displayedStatus);
+
+    //close modal after save
+    dialog2.close();
+});
+
+function updateStatus(readValue, status) {
+    if (readValue == 1) {
         status.classList.add('done');
     } else {
         status.classList.remove('done');
     }
+}
+
+cancelButton2.addEventListener('click', (e) => {
+    dialog2.close();
 });
-
-/* function adjustFontSize(id) {
-    var element = document.querySelector('title');
-    var parent = element.parentNode;
-    var fontSize = parseInt(window.getComputedStyle(element).fontSize);
-
-    while (
-        element.offsetHeight > parent.offsetHeight ||
-        element.offsetWidth > parent.offsetWidth
-    ) {
-        fontSize--;
-        element.style.fontSize = fontSize + 'px';
-    }
-} */
 
 /* 
 
