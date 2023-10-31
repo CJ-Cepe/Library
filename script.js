@@ -38,6 +38,7 @@ function displayBook(titleValue, authorValue, pagesValue, readValue) {
     pages.classList.add('pages');
     let status = document.createElement('div');
     status.classList.add('status');
+    //status.classList.add('done');
     let bookShadow = document.createElement('div');
     bookShadow.classList.add('book-shadow');
 
@@ -45,9 +46,9 @@ function displayBook(titleValue, authorValue, pagesValue, readValue) {
     author.textContent = authorValue;
     pages.textContent = pagesValue + ' p.';
     if (readValue == 1) {
-        status.classList.toggle('On');
+        status.classList.add('done');
     } else {
-        status.classList.toggle('On');
+        status.classList.remove('done');
     }
 
     book.addEventListener('click', form2Show);
@@ -129,9 +130,9 @@ saveButton.addEventListener('click', (e) => {
     myLibrary[index].read = read.value;
 
     if (read.value == 1) {
-        status.classList.toggle('On');
+        status.classList.add('done');
     } else {
-        status.classList.toggle('On');
+        status.classList.remove('done');
     }
 });
 
@@ -192,13 +193,12 @@ delete book
 add field limit for title, author, pages
 
     done
-
-
     - read status
+    - read toogle class
+
     - limit field number of chars
     - form 2 save
     - form 2 delete
     - form 2 cancel
-    - read toogle class
     - clean code
      */
