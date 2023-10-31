@@ -13,6 +13,7 @@ function addBookToLibrary(book) {
 
 /*================== Element Selectors =================*/
 let addButton = document.querySelector('.add');
+let innerShelf = document.querySelector('.inner-shelf');
 
 let dialog1 = document.querySelector('.form-1'); //first dialog
 let cancelButton1 = dialog1.querySelector("button[type='reset']");
@@ -28,57 +29,57 @@ cancelButton1.addEventListener('click', (e) => {
 });
 
 form1.addEventListener('submit', (e) => {
-    let title = document.querySelector('#title').value;
-    let author = document.querySelector('#author').value;
-    let pages = document.querySelector('#pages').value;
-    let read = document.querySelector('#read').value;
+    let title = form1.querySelector('#title').value;
+    let author = form1.querySelector('#author').value;
+    let pages = form1.querySelector('#pages').value;
+    let read = form1.querySelector('#read').value;
 
     addBookToLibrary(new Book(title, author, pages, read));
     displayBook(title, author, pages, read);
 
     e.preventDefault();
     form1.reset();
-    modal.close();
+    dialog1.close();
 });
 
-let innerShelf = document.querySelector('.inner-shelf');
-let deleteButton = document.querySelector('.delete');
-let focusIndex = 0;
-let saveButton = document.querySelector('.save');
-
 function displayBook(titleValue, authorValue, pagesValue, readValue) {
-    let book = document.createElement('div');
-    book.classList.add('book');
-    book.setAttribute('data-index', myLibrary.length - 1);
-    let divider1 = document.createElement('div');
-    divider1.classList.add('divider');
-    let divider2 = document.createElement('div');
-    divider2.classList.add('divider');
-    let divider3 = document.createElement('div');
-    divider3.classList.add('divider');
-    let title = document.createElement('span');
-    title.classList.add('title');
-    let author = document.createElement('span');
-    author.classList.add('author');
-    let pages = document.createElement('p');
-    pages.classList.add('pages');
-    let status = document.createElement('div');
-    status.classList.add('status');
-    //status.classList.add('done');
-    let bookShadow = document.createElement('div');
-    bookShadow.classList.add('book-shadow');
+    //create elements
+    let book = document.createElement('div'),
+        divider1 = document.createElement('div'),
+        divider2 = document.createElement('div'),
+        divider3 = document.createElement('div'),
+        title = document.createElement('span'),
+        author = document.createElement('span'),
+        pages = document.createElement('p'),
+        status = document.createElement('div'),
+        bookShadow = document.createElement('div');
 
-    title.textContent = titleValue;
-    author.textContent = authorValue;
-    pages.textContent = pagesValue + ' p.';
+    //add class names
+    book.classList.add('book');
+    divider1.classList.add('divider');
+    divider2.classList.add('divider');
+    divider3.classList.add('divider');
+    title.classList.add('title');
+    author.classList.add('author');
+    pages.classList.add('pages');
+    bookShadow.classList.add('book-shadow');
+    status.classList.add('status');
     if (readValue == 1) {
         status.classList.add('done');
     } else {
         status.classList.remove('done');
     }
 
+    //set attribute & Listener
+    book.setAttribute('data-index', myLibrary.length - 1);
     book.addEventListener('click', form2Show);
 
+    //change textContent
+    title.textContent = titleValue;
+    author.textContent = authorValue;
+    pages.textContent = pagesValue + ' p.';
+
+    //append elems - assemble book
     book.appendChild(divider1);
     book.appendChild(title);
     book.appendChild(divider2);
@@ -89,6 +90,29 @@ function displayBook(titleValue, authorValue, pagesValue, readValue) {
     book.appendChild(bookShadow);
     innerShelf.insertBefore(book, addButton);
 }
+
+function form2Show(e) {
+    let dialog2 = document.querySelector('.form-2'),
+        title = dialog2.querySelector('#title-2'),
+        author = dialog2.querySelector('#author-2'),
+        pages = dialog2.querySelector('#pages-2'),
+        read = dialog2.querySelector('#read-2');
+
+    dialog2.showModal();
+
+    let temp = e.currentTarget;
+    let index = temp.dataset.index;
+    focusIndex = temp;
+
+    title.value = myLibrary[index].title;
+    author.value = myLibrary[index].author;
+    pages.value = myLibrary[index].pages;
+    read.value = myLibrary[index].read;
+}
+
+let deleteButton = document.querySelector('.delete');
+let focusIndex = 0;
+let saveButton = document.querySelector('.save');
 
 deleteButton.addEventListener('click', (e) => {
     myLibrary.splice(focusIndex.dataset.index, 1);
@@ -140,25 +164,6 @@ saveButton.addEventListener('click', (e) => {
     }
 });
 
-function form2Show(e) {
-    let modal2 = document.querySelector('.form-2');
-    modal2.showModal();
-
-    let title = document.querySelector('#title-2');
-    let author = document.querySelector('#author-2');
-    let pages = document.querySelector('#pages-2');
-    let read = document.querySelector('#read-2');
-
-    let temp = e.currentTarget;
-    let index = temp.dataset.index;
-    focusIndex = temp;
-    console.log(temp, index);
-
-    title.value = myLibrary[index].title;
-    author.value = myLibrary[index].author;
-    pages.value = myLibrary[index].pages;
-    read.value = myLibrary[index].read;
-}
 /* function adjustFontSize(id) {
     var element = document.querySelector('title');
     var parent = element.parentNode;
