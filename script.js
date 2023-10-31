@@ -205,9 +205,4 @@ add field limit for title, author, pages
     - read status
     - read toogle class
 
-    - limit field number of chars
-    - form 2 save
-    - form 2 delete
-    - form 2 cancel
-    - clean code
      */
