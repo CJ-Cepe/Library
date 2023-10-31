@@ -12,18 +12,18 @@ function addBookToLibrary(book) {
 }
 
 /*================== Element Selectors =================*/
-let addButton = document.querySelector('.add');
-let innerShelf = document.querySelector('.inner-shelf');
-let focusBook = null;
+let addButton = document.querySelector('.add'),
+    innerShelf = document.querySelector('.inner-shelf'),
+    focusBook = null;
 
-let dialog1 = document.querySelector('.form-1'); //first dialog
-let cancelButton1 = dialog1.querySelector("button[type='reset']");
-let form1 = dialog1.querySelector('form');
+let dialog1 = document.querySelector('.form-1'), //first dialog
+    cancelButton1 = dialog1.querySelector("button[type='reset']"),
+    form1 = dialog1.querySelector('form');
 
-let dialog2 = document.querySelector('.form-2');
-let saveButton1 = dialog2.querySelector('.save');
-let deleteButton1 = dialog2.querySelector('.delete');
-let cancelButton2 = dialog2.querySelector("button[type='button']");
+let dialog2 = document.querySelector('.form-2'),
+    saveButton1 = dialog2.querySelector('.save'),
+    deleteButton1 = dialog2.querySelector('.delete'),
+    cancelButton2 = dialog2.querySelector("button[type='button']");
 
 /*================== Listeners =================*/
 addButton.addEventListener('click', (e) => {
