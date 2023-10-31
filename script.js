@@ -1,14 +1,5 @@
 const myLibrary = [];
 
-let modal = document.querySelector('.modal');
-let addButton = document.querySelector('.add');
-let cancelButton = document.querySelector("button[type='reset']");
-let form = document.querySelector('form');
-let innerShelf = document.querySelector('.inner-shelf');
-let deleteButton = document.querySelector('.delete');
-let focusIndex = 0;
-let saveButton = document.querySelector('.save');
-
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -19,6 +10,41 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
+
+/*================== Element Selectors =================*/
+let addButton = document.querySelector('.add');
+
+let dialog1 = document.querySelector('.form-1'); //first dialog
+let cancelButton1 = dialog1.querySelector("button[type='reset']");
+let form1 = dialog1.querySelector('form');
+
+/*================== Listeners =================*/
+addButton.addEventListener('click', (e) => {
+    dialog1.showModal();
+});
+
+cancelButton1.addEventListener('click', (e) => {
+    dialog1.close();
+});
+
+form1.addEventListener('submit', (e) => {
+    let title = document.querySelector('#title').value;
+    let author = document.querySelector('#author').value;
+    let pages = document.querySelector('#pages').value;
+    let read = document.querySelector('#read').value;
+
+    addBookToLibrary(new Book(title, author, pages, read));
+    displayBook(title, author, pages, read);
+
+    e.preventDefault();
+    form1.reset();
+    modal.close();
+});
+
+let innerShelf = document.querySelector('.inner-shelf');
+let deleteButton = document.querySelector('.delete');
+let focusIndex = 0;
+let saveButton = document.querySelector('.save');
 
 function displayBook(titleValue, authorValue, pagesValue, readValue) {
     let book = document.createElement('div');
@@ -63,28 +89,6 @@ function displayBook(titleValue, authorValue, pagesValue, readValue) {
     book.appendChild(bookShadow);
     innerShelf.insertBefore(book, addButton);
 }
-
-form.addEventListener('submit', (e) => {
-    let title = document.querySelector('#title').value;
-    let author = document.querySelector('#author').value;
-    let pages = document.querySelector('#pages').value;
-    let read = document.querySelector('#read').value;
-
-    addBookToLibrary(new Book(title, author, pages, read));
-    displayBook(title, author, pages, read);
-
-    e.preventDefault();
-    form.reset();
-    modal.close();
-});
-
-addButton.addEventListener('click', (e) => {
-    modal.showModal();
-});
-
-cancelButton.addEventListener('click', (e) => {
-    modal.close();
-});
 
 deleteButton.addEventListener('click', (e) => {
     myLibrary.splice(focusIndex.dataset.index, 1);
