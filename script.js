@@ -209,7 +209,10 @@ add field limit for title, author, pages
 
 /*
     2. allow books to be colored
-    3. form responsive
+    3. trash icon red on hover
+    4. slider design
+    5. button
+    6. text color
    
 
 */

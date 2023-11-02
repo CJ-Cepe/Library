@@ -352,7 +352,19 @@ input:not(:focus) + label > .guide {
 }
 
 .form-cont:nth-last-child(2) {
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.form-cont:nth-last-child(2) span {
+    text-transform: lowercase;
+    font-style: italic;
+    color: var(--gray2);
+}
+
+.form-cont:nth-last-child(2) > div > input {
     margin-bottom: 1rem;
+    width: 50px;
 }
 
 .form-cont:last-child button {
