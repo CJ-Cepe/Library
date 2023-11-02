@@ -208,17 +208,18 @@ body {
 
 .book > .status {
     grid-area: i;
-    height: 23px;
-    width: 23px;
-    border-radius: 50%;
-    border: 2px solid greenyellow;
+    height: 18px;
+    width: 18px;
+    border-radius: 2px;
+    border: 2px solid #85d239;
+    transform: rotate(45deg);
 
     align-self: center;
     justify-self: center;
 }
 
 .done {
-    background-color: greenyellow;
+    background-color: #85d239;
 }
 
 .book-shadow {
