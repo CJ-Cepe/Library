@@ -208,9 +208,8 @@ add field limit for title, author, pages
      */
 
 /*
-    1. design status
     2. allow books to be colored
     3. form responsive
-    4. add button styling
+   
 
 */
